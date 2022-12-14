@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import todoList from "@/views/todoList.vue";
+import todoForm from "@/views/todoForm.vue";
 
 Vue.use(VueRouter);
 
@@ -9,6 +10,11 @@ const routes = [
     path: "/",
     name: "Todo List",
     component: todoList,
+  },
+  {
+    path: "/todo-form",
+    name: "Todo Form",
+    component: todoForm,
   },
   // {
   //   path: "/about",

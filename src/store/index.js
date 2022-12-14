@@ -11,17 +11,17 @@ export default new Vuex.Store({
         title: "сходить в магазин",
         tasks: [
           {
-            discription:
+            description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             isDone: false,
           },
           {
-            discription:
+            description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             isDone: false,
           },
           {
-            discription:
+            description:
               "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             isDone: false,
           },
@@ -32,17 +32,17 @@ export default new Vuex.Store({
         title: "сходить в посрать",
         tasks: [
           {
-            discription:
+            description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             isDone: false,
           },
           {
-            discription:
+            description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             isDone: false,
           },
           {
-            discription:
+            description:
               "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             isDone: false,
           },
@@ -53,17 +53,17 @@ export default new Vuex.Store({
         title: "сходить в поссать",
         tasks: [
           {
-            discription:
+            description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             isDone: false,
           },
           {
-            discription:
+            description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             isDone: false,
           },
           {
-            discription:
+            description:
               "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             isDone: false,
           },
@@ -76,7 +76,16 @@ export default new Vuex.Store({
       return state.todos;
     },
   },
-  mutations: {},
+  mutations: {
+    removeTodo(state, data) {
+      state.todos = state.todos.filter((todo) => {
+        if (todo.id !== data.id) return todo;
+      });
+    },
+    addTodo(state, data) {
+      state.todos.push(data);
+    },
+  },
   actions: {},
   modules: {},
 });
