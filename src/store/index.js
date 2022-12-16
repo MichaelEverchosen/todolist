@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    todoIdForEdit: null,
     todos: [
       {
         id: 1,
@@ -75,6 +76,14 @@ export default new Vuex.Store({
     getTodos(state) {
       return state.todos;
     },
+    getTodoIdForEdit(state) {
+      return state.todoIdForEdit;
+    },
+    getTodoForEdit(state) {
+      for (let todo of state.todos) {
+        if (todo.id === state.todoIdForEdit) return todo;
+      }
+    },
   },
   mutations: {
     removeTodo(state, data) {
@@ -84,6 +93,9 @@ export default new Vuex.Store({
     },
     addTodo(state, data) {
       state.todos.push(data);
+    },
+    setTodoIdForEdit(state, data) {
+      state.todoIdForEdit = data.id;
     },
   },
   actions: {},

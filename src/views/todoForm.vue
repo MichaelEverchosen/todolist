@@ -26,6 +26,24 @@ export default {
     };
   },
 
+  computed: {
+    todoIdForEdit() {
+      return this.$store.getters.getTodoIdForEdit;
+    },
+    isEditForm() {
+      const value = this.todoIdForEdit !== null;
+      // if (value) this.parseTodoData();
+      return value;
+    },
+  },
+
+  watch: {
+    isEditForm() {
+      console.log("сработал ватчер");
+      if (this.isEditForm) this.parseTodoData();
+    },
+  },
+
   methods: {
     addTask() {
       this.tasks.push({
@@ -41,6 +59,12 @@ export default {
         title: this.title,
         tasks: this.tasks,
       });
+    },
+    parseTodoData() {
+      let data = this.$store.getters.getTodoForEdit;
+      console.log("data", data);
+      this.title = data.title;
+      this.tasks = data.tasks;
     },
   },
 };
