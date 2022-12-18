@@ -1,5 +1,6 @@
 <template>
   <div class="wrap">
+    <h2>{{ formTitle }}</h2>
     <input type="text" v-model="title" />
     <div v-for="(task, idx) in tasks" :key="idx">
       <input type="text" v-model="tasks[idx].description" />
@@ -32,14 +33,20 @@ export default {
     },
     isEditForm() {
       const value = this.todoIdForEdit !== null;
-      // if (value) this.parseTodoData();
+      // TODO: Я крч хуй знает ,но надо что то делать
+      if (value) this.parseTodoData();
       return value;
+    },
+    formTitle() {
+      return this.isEditForm ? "Отредактировать запись" : "Создать запись";
+    },
+    mutationName() {
+      return this.isEditForm ? "updateTodo" : "addTodo";
     },
   },
 
   watch: {
     isEditForm() {
-      console.log("сработал ватчер");
       if (this.isEditForm) this.parseTodoData();
     },
   },
@@ -55,16 +62,20 @@ export default {
       this.tasks.splice(idx, 1);
     },
     save() {
-      this.$store.commit("addTodo", {
+      this.$store.commit(this.mutationName, {
         title: this.title,
         tasks: this.tasks,
       });
+      this.redirectToMainPage();
     },
     parseTodoData() {
       let data = this.$store.getters.getTodoForEdit;
       console.log("data", data);
       this.title = data.title;
       this.tasks = data.tasks;
+    },
+    redirectToMainPage() {
+      this.$router.push("/");
     },
   },
 };
