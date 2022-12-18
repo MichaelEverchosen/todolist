@@ -33,7 +33,6 @@ export default {
     },
     isEditForm() {
       const value = this.todoIdForEdit !== null;
-      // TODO: Я крч хуй знает ,но надо что то делать
       if (value) this.parseTodoData();
       return value;
     },
@@ -42,12 +41,6 @@ export default {
     },
     mutationName() {
       return this.isEditForm ? "updateTodo" : "addTodo";
-    },
-  },
-
-  watch: {
-    isEditForm() {
-      if (this.isEditForm) this.parseTodoData();
     },
   },
 
@@ -70,7 +63,6 @@ export default {
     },
     parseTodoData() {
       let data = this.$store.getters.getTodoForEdit;
-      console.log("data", data);
       this.title = data.title;
       this.tasks = data.tasks;
     },
