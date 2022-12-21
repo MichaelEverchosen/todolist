@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap tc">
     <h2>{{ formTitle }}</h2>
     <input type="text" v-model="title" />
     <div v-for="(task, idx) in tasks" :key="idx">
@@ -73,4 +73,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>
