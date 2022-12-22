@@ -9,7 +9,6 @@
   padding: 40px 100px 20px 100px;
   text-align: center;
   margin: 0px;
-  background-color: Blue;
   opacity: 70%;
 }
 
@@ -29,4 +28,12 @@
 
 .button-edit {
   margin-left: 985px;
+}
+
+.bg {
+  box-shadow: 1px 1px 5px 3px #dcdcdc;
+  margin: 25px;
+  padding: 25px;
+  border: 5px;
+  border-radius: 25px;
 }

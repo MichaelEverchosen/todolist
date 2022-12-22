@@ -1,15 +1,23 @@
 <template>
-  <div class="wrap tc">
-    <h2>{{ formTitle }}</h2>
-    <input type="text" v-model="title" />
-    <div v-for="(task, idx) in tasks" :key="idx">
-      <input type="text" v-model="tasks[idx].description" />
-      <button @click="removeTask(idx)">Убрать</button>
+  <div class="wrap">
+    <div class="action-task tc">
+      <h2>{{ formTitle }}</h2>
     </div>
-    <div>
-      <button @click="addTask">Добавить</button>
+    <div class="task change tc">
+      <div class="task-field-sizes bg">
+        <input type="text" v-model="title" />
+      </div>
+      <div v-for="(task, idx) in tasks" :key="idx">
+        <div class="task-field-sizes bg">
+          <input type="text" v-model="tasks[idx].description" />
+          <button @click="removeTask(idx)">Убрать</button>
+        </div>
+      </div>
+      <div>
+        <button @click="addTask">Добавить</button>
+      </div>
+      <button @click="save">Сохранить</button>
     </div>
-    <button @click="save">Сохранить</button>
   </div>
 </template>
 
@@ -37,7 +45,7 @@ export default {
       return value;
     },
     formTitle() {
-      return this.isEditForm ? "Отредактировать запись" : "Создать запись";
+      return this.isEditForm ? "Отредактировать задачу" : "Создать задачу";
     },
     mutationName() {
       return this.isEditForm ? "updateTodo" : "addTodo";
@@ -73,4 +81,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.action-task {
+  background-color: Blue;
+}
+
+.task change {
+  background-color: whitesmoke;
+}
+</style>
