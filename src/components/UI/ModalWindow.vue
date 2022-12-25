@@ -1,0 +1,34 @@
+<template>
+  <div class="modal-wrap">
+    <div class="modal">
+      <slot></slot>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss" scoped>
+.modal-wrap {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal {
+    height: 300px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid rgb(55, 55, 55);
+    border-radius: 3px;
+  }
+}
+</style>

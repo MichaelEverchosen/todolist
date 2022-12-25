@@ -28,7 +28,8 @@ export default {
   },
   methods: {
     removeTodo(id) {
-      this.$store.commit("removeTodo", { id: id });
+      this.$store.commit("setTodoIdToRemove", { id: id });
+      this.$store.commit("openModal", { modalName: "removeTodo" });
     },
     goToTodoEditForm(id) {
       this.$store.commit("setTodoIdForEdit", { id: id });

@@ -13,11 +13,6 @@ export default {
   components: {
     TodoCard,
   },
-  data() {
-    return {
-      // todos: [],
-    };
-  },
   computed: {
     todos() {
       return this.$store.getters.getTodos;

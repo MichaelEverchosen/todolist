@@ -71,6 +71,8 @@ export default new Vuex.Store({
         ],
       },
     ],
+    activeModalName: "",
+    todoIdToRemove: null,
   },
   getters: {
     getTodos(state) {
@@ -84,12 +86,17 @@ export default new Vuex.Store({
         if (todo.id === state.todoIdForEdit) return todo;
       }
     },
+    getActiveModalName(state) {
+      return state.activeModalName;
+    },
   },
   mutations: {
-    removeTodo(state, data) {
+    removeTodo(state) {
       state.todos = state.todos.filter((todo) => {
-        if (todo.id !== data.id) return todo;
+        if (todo.id !== state.todoIdToRemove) return todo;
       });
+      // TODO Вызвать мутацию
+      state.activeModalName = "";
     },
     addTodo(state, data) {
       state.todos.push(data);
@@ -101,9 +108,17 @@ export default new Vuex.Store({
       const idx = state.todos.findIndex((todo) => {
         return todo.id === state.todoIdForEdit;
       });
-      console.log(idx);
       state.todos[idx].tasks = data.tasks;
       state.todos[idx].title = data.title;
+    },
+    setTodoIdToRemove(state, data) {
+      state.todoIdToRemove = data.id;
+    },
+    openModal(state, data) {
+      state.activeModalName = data.modalName;
+    },
+    closeModal(state) {
+      state.activeModalName = "";
     },
   },
   actions: {},
