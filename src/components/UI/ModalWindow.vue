@@ -24,11 +24,12 @@ export default {};
   align-items: center;
 
   .modal {
-    height: 300px;
-    width: 300px;
+    height: 250px;
+    width: 400px;
     background-color: #fff;
     border: 1px solid rgb(55, 55, 55);
-    border-radius: 3px;
+    border-radius: 5px;
+    text-align: center;
   }
 }
 </style>

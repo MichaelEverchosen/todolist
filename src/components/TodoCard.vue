@@ -3,7 +3,10 @@
     <h3>{{ todoData.title }}</h3>
     <ul>
       <li v-for="(task, idx) in todoData.tasks" :key="idx">
-        <p>{{ task.description }}</p>
+        <div class="subtask">
+          <input type="checkbox" id="checkbox" v-model="task.isDone" />
+          <p :class="{ 'strike-text': task.isDone }">{{ task.description }}</p>
+        </div>
       </li>
     </ul>
     <button
@@ -43,5 +46,20 @@ export default {
 .todo h3 {
   padding-bottom: 15px;
   margin-left: 30px;
+}
+
+.subtask {
+  display: grid;
+  grid-template: auto 1fr / auto 1fr auto;
+}
+
+#checkbox {
+  height: 20px;
+  width: 20px;
+  margin: 20px;
+}
+
+.strike-text {
+  text-decoration: line-through;
 }
 </style>

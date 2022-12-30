@@ -3,20 +3,20 @@
     <div class="action-task tc">
       <h2>{{ formTitle }}</h2>
     </div>
-    <div class="task change tc">
-      <div class="task-field-sizes bg">
+    <div class="task change tc bg">
+      <div class="task-field-sizes">
         <input type="text" v-model="title" />
       </div>
       <div v-for="(task, idx) in tasks" :key="idx">
-        <div class="task-field-sizes bg">
+        <div class="field-sizes">
           <input type="text" v-model="tasks[idx].description" />
-          <button @click="removeTask(idx)">Убрать</button>
+          <button class="action-button" @click="removeTask(idx)">Убрать</button>
         </div>
       </div>
       <div>
-        <button @click="addTask">Добавить</button>
+        <button class="action-button" @click="addTask">Добавить</button>
       </div>
-      <button @click="save">Сохранить</button>
+      <button class="action-button" @click="save">Сохранить</button>
     </div>
   </div>
 </template>
@@ -83,10 +83,23 @@ export default {
 
 <style scoped>
 .action-task {
-  background-color: Blue;
 }
 
 .task change {
   background-color: whitesmoke;
+}
+
+.task-field-sizes input {
+  border: 1px solid rgb(55, 55, 55);
+  border-radius: 3px;
+  height: 30px;
+  width: 1000px;
+}
+.field-sizes input {
+  border: 1px solid rgb(55, 55, 55);
+  border-radius: 3px;
+  margin: 15px 15px 15px 97px;
+  height: 30px;
+  width: 1000px;
 }
 </style>

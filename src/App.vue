@@ -39,4 +39,18 @@ export default {
 
 <style lang="scss">
 @import "@/assets/styles/index.scss";
+
+.modal-remove-todo h4 {
+  font-size: 20px;
+  margin-top: 60px;
+  padding: 15px;
+}
+
+.actions button {
+  height: 40px;
+  width: 100px;
+  margin: 5px;
+  border: 1px solid rgb(55, 55, 55);
+  border-radius: 10px;
+}
 </style>
